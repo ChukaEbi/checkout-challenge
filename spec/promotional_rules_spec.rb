@@ -1,6 +1,9 @@
 require 'promotional_rules'
 
 describe PromotionalRules do
+  let(:products) { double(:products, :items => {001 => ["Lavender heart", 9.25],
+                                      002 => ["Personalised cufflinks", 45.00],
+                                      003 => ["Kids T-shirt", 19.95]}) }
 
   subject(:promotion) {described_class.new}
 
@@ -13,8 +16,14 @@ describe PromotionalRules do
     expect(promotion.spending_promotion(price)).to eq 9
   end
 
-  it " sees if more than one of the same item is bought" do
-    expect(promotion.more_than_one).to be_falsey
+  it "can count the number of hearts in a basket" do
+    basket = [products.items[1],products.items[2],products.items[1]]
+    expect(promotion.check_for_hearts(basket)).to equal(true)
+  end
+
+  it "can replace the price of Lavender hearts" do
+    basket = [products.items[1]]
+    expect{promotion.item_promotion(basket)}.to change{basket[0][1]}.to(PromotionalRules::DISCOUNTED_PRICE)
   end
 
 end

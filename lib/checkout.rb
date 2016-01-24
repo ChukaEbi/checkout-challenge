@@ -24,11 +24,20 @@ class Checkout
   end
 
   def finish_ordering
+    heart_discount if check_hearts
     spending_discount if @total >= SPENDING_MINIMUM
     print_receipt
   end
 
   private
+
+  def check_hearts
+     @promotion.check_for_hearts(@basket)
+  end
+
+  def heart_discount
+    @promotion.item_promotion(@basket)
+  end
 
   def spending_discount
     @total = (@promotion.spending_promotion(@total)).round(2)

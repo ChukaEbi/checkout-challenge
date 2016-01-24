@@ -37,6 +37,7 @@ describe Checkout do
         checkout.scan(1)
         checkout.scan(2)
       end
+
       it ' will print a receipt that contains the order' do
         checkout.finish_ordering
         expect(checkout.receipt).to include("#{checkout.total}")
@@ -44,8 +45,11 @@ describe Checkout do
 
       it 'will apply a 10% discount if more than £60 is spent' do
         checkout.scan(3)
-        diff = (0.1* checkout.total).round(2)
         expect{checkout.finish_ordering}.to change{checkout.total}.by(-7.420000000000002)
+      end
+      it 'will apply the discount if 2 or more Lavender hearts are bought' do
+        checkout.scan(1)
+        expect{checkout.finish_ordering}.to change{checkout.basket[0][1]}.to(8.5)
       end
     end
   end
