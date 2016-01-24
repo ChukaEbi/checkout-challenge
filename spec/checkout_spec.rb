@@ -49,7 +49,7 @@ describe Checkout do
       end
       it 'will apply the discount if 2 or more Lavender hearts are bought' do
         checkout.scan(1)
-        expect{checkout.finish_ordering}.to change{checkout.basket[0][1]}.to(8.5)
+        expect{checkout.finish_ordering}.to change{checkout.total}.to(55.8)
       end
     end
   end

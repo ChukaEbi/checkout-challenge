@@ -37,6 +37,7 @@ class Checkout
 
   def heart_discount
     @promotion.item_promotion(@basket)
+    @total -= @promotion.price_difference
   end
 
   def spending_discount

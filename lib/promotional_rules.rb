@@ -5,8 +5,10 @@ class PromotionalRules
   DISCOUNT_ITEM = "Lavender heart"
   MINIMUM_NO_FOR_DISCOUNT = 2
 
+  attr_reader :price_difference
 
   def initialize
+    @price_difference = 0.0
   end
 
   def spending_promotion(price)
@@ -16,7 +18,11 @@ class PromotionalRules
   end
 
   def item_promotion(basket)
-    basket.each { |item| item[1] = DISCOUNTED_PRICE if item[0] == DISCOUNT_ITEM }
+    basket.each do |item|
+      if item[0] == DISCOUNT_ITEM
+        @price_difference += (item[1] - DISCOUNTED_PRICE)
+      end
+    end
   end
 
   def check_for_hearts(basket)

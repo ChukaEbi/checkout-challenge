@@ -21,9 +21,9 @@ describe PromotionalRules do
     expect(promotion.check_for_hearts(basket)).to equal(true)
   end
 
-  it "can replace the price of Lavender hearts" do
-    basket = [products.items[1]]
-    expect{promotion.item_promotion(basket)}.to change{basket[0][1]}.to(PromotionalRules::DISCOUNTED_PRICE)
+  it "can calculate the discount for buying 2 or more lavender hearts" do
+    basket = [products.items[1], products.items[1]]
+    expect{promotion.item_promotion(basket)}.to change{promotion.price_difference}.to(1.5)
   end
 
 end
