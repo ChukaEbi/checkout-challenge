@@ -41,6 +41,12 @@ describe Checkout do
         checkout.finish_ordering
         expect(checkout.receipt).to include("#{checkout.total}")
       end
+
+      it 'will apply a 10% discount if more than £60 is spent' do
+        checkout.scan(3)
+        diff = (0.1* checkout.total).round(2)
+        expect{checkout.finish_ordering}.to change{checkout.total}.by(-7.420000000000002)
+      end
     end
   end
 end

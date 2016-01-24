@@ -9,7 +9,7 @@ class PromotionalRules
   end
 
   def spending_promotion(price)
-    amount_to_reduce_by = SPENDING_PROMOTION_PERCENTAGE* price
+    amount_to_reduce_by = (SPENDING_PROMOTION_PERCENTAGE* price).round(2)
     final_price = price - amount_to_reduce_by
     final_price
   end

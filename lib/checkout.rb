@@ -3,12 +3,15 @@ require_relative 'promotional_rules'
 
 class Checkout
 
+  SPENDING_MINIMUM = 60
+
   attr_reader :total, :basket, :receipt
 
   def initialize(promotional_rules = PromotionalRules.new, products = Products.new)
     @basket = []
     @products = products
     @total = 0
+    @promotion = promotional_rules
     @receipt = ''
   end
 
@@ -21,10 +24,15 @@ class Checkout
   end
 
   def finish_ordering
+    spending_discount if @total >= SPENDING_MINIMUM
     print_receipt
   end
 
   private
+
+  def spending_discount
+    @total = (@promotion.spending_promotion(@total)).round(2)
+  end
 
   def print_receipt
     @basket.each do |x|
