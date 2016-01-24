@@ -33,7 +33,14 @@ describe Checkout do
   context 'when I have finished with my purchases' do
 
     describe 'finish_ordering' do
-
+      before (:each) do
+        checkout.scan(1)
+        checkout.scan(2)
+      end
+      it ' will print a receipt that contains the order' do
+        checkout.finish_ordering
+        expect(checkout.receipt).to include("#{checkout.total}")
+      end
     end
   end
 end
