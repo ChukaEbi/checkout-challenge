@@ -3,11 +3,11 @@
 
 # **CHECKOUT CHALLENGE**
 
-### Introduction
+## Introduction
 
 The challenge was to develop my own checkout system for an online marketplace. I approached the problem by posing myself a question: How do I make it maintainable and extendable for the end user. I completed the challenge and detailed my approach below.
 
-### My Approach
+## My Approach
 I created three classes for this challenge:
  - Checkout
  - Promotional rules
@@ -21,7 +21,7 @@ The products class contains a list of the products on offer. I separated this be
 
 I used TDD methodology to tackle this challenge. So every public method I wrote, I wrote a test for.
 
-### How To Use It
+## How To Use It
 
 ```
 co = Checkout.new
@@ -35,8 +35,8 @@ co.scan 1
 co.finish_ordering
  => "1 Lavender heart, 1 Kids T-shirt, 1 Lavender heart, The final total is £36.95"
  ```
-
- ### Installation
+Installation
+------------
 
  You should have the ruby version 2.2.3 and above
 
