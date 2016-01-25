@@ -1,10 +1,9 @@
 [![Build Status](https://travis-ci.org/ChukaEbi/checkout-challenge.svg?branch=master)](https://travis-ci.org/ChukaEbi/checkout-challenge)
 [![Coverage Status](https://coveralls.io/repos/github/ChukaEbi/checkout-challenge/badge.svg?branch=master)](https://coveralls.io/github/ChukaEbi/checkout-challenge?branch=master)
 
-## **CHECKOUT CHALLENGE**
+# **CHECKOUT CHALLENGE**
 
-Introduction
---------
+### Introduction
 
 The challenge was to develop my own checkout system for an online marketplace. I approached the problem by posing myself a question: How do I make it maintainable and extendable for the end user. I completed the challenge and detailed my approach below.
 
