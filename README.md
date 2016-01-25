@@ -6,9 +6,8 @@
 Introduction
 --------
 
-The challenge was to develop my own checkout system for an online marketplace. I approached the problem by posing myself a question: How do I make it maintanable and extendable for the end user. I completed the challenge and detail my approach below.
+The challenge was to develop my own checkout system for an online marketplace. I approached the problem by posing myself a question: How do I make it maintainable and extendable for the end user. I completed the challenge and detailed my approach below.
 
-I was able to
 ### My Approach
 I created three classes for this challenge:
  - Checkout
@@ -49,4 +48,4 @@ co.finish_ordering
 
  then run ```bundle install```
 
- you can see run the test by running ```rspec ```
+ you can see the tests by running ```rspec ```
